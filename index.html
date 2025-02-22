@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">pu
+    <link rel="stylesheet" href="style.css">
     <title>WEATHER MAP</title>
 </head>
 <body>
+    <h2>Weather in India</h2>
+    <button onclick="fetchWeather()">Get Weather</button>
+    <p id="weather"></p>
+    <script src="map.js"></script>
+  <header><h1>WEATHER MAP</h1>
+
+    <div class="header">
+      <button class="signbtn">Sign In</button><br><br>
+      <input type="text" name="search" placeholder="Search here">
+    <button type="submit">Search</button>
+    </div>
     <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Dropdown link
@@ -20,5 +31,8 @@
           <li><a class="dropdown-item" href="#">ICING</a></li>
         </ul>
       </div>
+    </div>
+      </header>
+    </header>
 </body>
 </html>
