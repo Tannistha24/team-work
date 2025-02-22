@@ -1,10 +1,109 @@
-.dropdown-menu{
-    list-style-type: none;
-    font-size:20px;
-    background-color:hsla(240, 9%, 48%, 0.897);
+h1{
+    font-size:3em;
+    background-color: rgb(31, 218, 155);
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px;
     
-
+    
 }
+h2{
+    font-size:3em;
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px;
+    width: fit-content;
+    
+}
+#searchbtn{
+    font-size: 20px;
+    color: hsl(108, 100%, 50%);
+    background-color: rgb(34, 16, 16);
+    border:5px grooved;
+    border-radius:3px;
+    margin:auto;
+}
+input{
+    font-size: 20px;
+    background-color: hsl(180, 100%, 50%);
+    border:2px solid black;
+    border-radius: 3px;
+    outline: none;
+}
+input::placeholder {
+    color: hsl(120, 6%, 7%); /* Replace with your desired color */
+}
+input:focus {
+    background-color: hsl(180, 100%, 50%); /* Keeps the same background */
+    border-color: black; /* Keeps the same border */
+}
+#weather{
+    font-size:20px;
+    margin : auto;
+    padding:5px;
+    border : 4px solid hsl(0, 0%, 1%);
+    border-radius:5px;
+}
+
+
 h1{
     text-align: center;
+}
+
+.signbtn{
+    font-size: 20px;
+    color:rgb(41, 141, 228);
+    border-color:solid antiquewhite;
+    border-radius : 5px;
+    padding : 5px;
+    margin :auto
+}
+.signbtn:hover{
+    background-color:hsla(54, 60%, 68%, 0.637);
+}
+
+.dropdown-toggle{
+    background-color: hsl(211, 100%, 50%); 
+    color: white;
+    border: solid black;
+    margin:10px 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+.dropdown-toggle:hover {
+    background-color: hsl(20, 11%, 69%); 
+}
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 5px solid #030303;
+    min-width: 200px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+    display: table;
+    list-style-type:none;
+}
+.dropdown-item {
+    margin:auto;
+    font-size: 20px;
+    color: #ee0a0a; 
+    transition: background 0.3s ease, color 0.3s ease;
+    background-color: hsl(0, 0%, 100%);
+}
+.dropdown-item:hover {
+    background-color: black;
+    color: hsl(0, 0%, 100%);
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
