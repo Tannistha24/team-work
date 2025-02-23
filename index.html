@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>WEATHER MAP</title>
 </head>
 <body>
@@ -12,6 +13,7 @@
     <h2>Weather in India</h2>
     <button onclick="fetchWeather()" id="weather">Get Weather</button><br><br>
     <script src="map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 
     <div class="header">
       <button class="signbtn">Sign In</button><br><br>
@@ -19,20 +21,19 @@
     <button type="submit" id="searchbtn">Search</button>
     </div>
     <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="dropbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Select Option
       </button>             
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">WIND</a></li>
-        <li><a class="dropdown-item" href="#">TEMPERATURE</a></li>
-        <li><a class="dropdown-item" href="#">RAINFALL</a></li>
-        <li><a class="dropdown-item" href="#">FOG</a></li>
-        <li><a class="dropdown-item" href="#">HEAT WAVES</a></li>
-        <li><a class="dropdown-item" href="#">ICING</a></li>
-      </ul>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">WIND</a>
+        <a class="dropdown-item" href="#">TEMPERATURE</a>
+        <a class="dropdown-item" href="#">RAINFALL</a>
+        <a class="dropdown-item" href="#">FOG</a>
+        <a class="dropdown-item" href="#">HEAT WAVES</a>
+        <a class="dropdown-item" href="#">ICING</a>
+      </div>
     </div>
-    </div>
-      </header>
-    </header>
+  </header>
+ 
 </body>
 </html>

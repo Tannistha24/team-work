@@ -23,3 +23,16 @@ function fetchWeather() {
             document.getElementById('weather').innerText = 'Failed to fetch weather data.';
         });
 }
+function initMap() {
+    const mapOptions = {
+        center: { lat: 0, lng: 0 }, // Center of the world
+        zoom: 2,
+        mapTypeId: 'satellite', // Set to satellite view
+        disableDefaultUI: true, // Disable default UI
+        draggable: false, // Disable dragging
+        scrollwheel: false, // Disable scroll zoom
+        zoomControl: false // Disable zoom control
+    };
+
+    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+}
