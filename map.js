@@ -1,5 +1,5 @@
 function fetchWeather() {
-    const url = 'https://api.open-meteo.com/v1/forecast?latitude=20.5937&longitude=78.9629&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FCalcutta';
+    const url = 'https://serpapi.com/search.json?engine=google_maps&q=Coffee&ll=@40.7455096,-74.0083012,14z';
 
     fetch(url)
         .then(response => {

@@ -32,11 +32,11 @@ input{
     outline: none;
 }
 input::placeholder {
-    color: hsl(120, 6%, 7%); /* Replace with your desired color */
+    color: hsl(120, 6%, 7%);
 }
 input:focus {
-    background-color: hsl(180, 100%, 50%); /* Keeps the same background */
-    border-color: black; /* Keeps the same border */
+    background-color: hsl(180, 100%, 50%); 
+    border-color: black; 
 }
 #weather{
     font-size:20px;
@@ -63,7 +63,7 @@ h1{
     background-color:hsla(54, 60%, 68%, 0.637);
 }
 
-.dropdown-toggle{
+/*.dropdown-toggle{
     background-color: hsl(211, 100%, 50%); 
     color: white;
     border: solid black;
@@ -96,7 +96,7 @@ h1{
 .dropdown-item:hover {
     background-color: black;
     color: hsl(0, 0%, 100%);
-}
+}*/
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -106,4 +106,44 @@ h1{
         opacity: 1;
         transform: translateY(0);
     }
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
