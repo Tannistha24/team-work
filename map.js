@@ -1,38 +1,49 @@
 function fetchWeather() {
-    const url = 'https://api.open-meteo.com/v1/forecast?latitude=20.5937&longitude=78.9629&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FCalcutta';
-
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data && data.daily) {
-                const maxTemp = data.daily.temperature_2m_max[0];
-                const minTemp = data.daily.temperature_2m_min[0];
-                document.getElementById('weather').innerText = 
-                    `Max Temperature: ${maxTemp}°C, Min Temperature: ${minTemp}°C`;
-            } else {
-                document.getElementById('weather').innerText = 'Weather data not available.';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching weather:', error);
-            document.getElementById('weather').innerText = 'Failed to fetch weather data.';
-        });
+  const api_key = "79d8d59b85f9f48e1a902726cd8bcf69"; 
+  const city = 'London';
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); // Handle your API response here
+    })
+    .catch(error => console.error("Error fetching weather data:", error));
 }
-function initMap() {
-    const mapOptions = {
-        center: { lat: 0, lng: 0 }, // Center of the world
-        zoom: 2,
-        mapTypeId: 'satellite', // Set to satellite view
-        disableDefaultUI: true, // Disable default UI
-        draggable: false, // Disable dragging
-        scrollwheel: false, // Disable scroll zoom
-        zoomControl: false // Disable zoom control
-    };
+/*for sign in*/
 
-    const map = new google.maps.Map(document.getElementById('map'), mapOptions);
-}
+document.addEventListener("DOMContentLoaded", function() {
+    let form = document.querySelector("#signinForm form");
+    let usernameInput = document.getElementById("username");
+    let passwordInput = document.getElementById("password");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent actual form submission
+
+        let enteredUsername = usernameInput.value.trim();
+        let enteredPassword = passwordInput.value.trim();
+
+        if (enteredUsername === "" || enteredPassword === "") {
+            alert("Please fill all the details! ");
+        } else {
+            alert("Sign In Successful! Redirecting to main website...");
+            window.location.href = "index.html"; // Redirect to main page
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    let resetButton = document.getElementById("r1"); // Reset button
+    let form = document.querySelector("#signinForm form"); // Form element
+
+    resetButton.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent any unintended behavior
+        form.reset(); // Clears all input fields
+    });
+})
+  
+
+

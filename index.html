@@ -8,7 +8,8 @@
     <title>WEATHER MAP</title>
 </head>
 <body>
-  <header><h1>WEATHER MAP</h1>
+    
+  <!--<header><h1>WEATHER MAP</h1>
     <h2>Weather in India</h2>
     <button onclick="fetchWeather()" id="weather">Get Weather</button><br><br>
     <script src="map.js"></script>
@@ -18,10 +19,10 @@
       <button class="signbtn">Sign In</button><br><br>
       <input type="text" name="search" placeholder="Search here">
       <button type="submit" id="searchbtn">Search</button>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    </div>-expanded="false">
         Select Option
+    <div class="dropdown">
+      <button class="dropbtn" type="button" data-bs-toggle="dropdown" aria
       </button>             
       <div class="dropdown-menu">
         <a class="dropdown-item" href="#">WIND</a>
@@ -31,7 +32,29 @@
         <a class="dropdown-item" href="#">HEAT WAVES</a>
         <a class="dropdown-item" href="#">ICING</a>
       </div>
+    </div>-->
+
+    <h2>Weather in India</h2>    
+  <button onclick="fetchWeather()" id="weather">Get Weather</button><br><br>
+  <script src="map.js"></script>
+
+  <div class="header">
+    <button class="signbtn" id="sign"><a href="sign.html" target="_blank">Sign In</a></button><br><br>
+    <div class="search-container">
+      <input type="text" name="search" placeholder="Enter Your Location">
+      <button type="submit" id="searchbtn">Search</button>
+    </div>          
+   <div class="dropdown">
+      <button class="dropdown-button">Select</button>
+      <div class="dropdown-content">
+        <a href="wind.html" target="_blank">WIND</a>
+        <a href="temp.html" target="_blank">TEMPERATURE</a>
+        <a href="rainfall.html" target="_blank">RAINFALL</a>
+        <a href="fog.html" target="_blank">FOG</a>
+        <a href="heatwave.html" target="_blank">HEAT WAVES</a>
+        <a href="icing.html" target="_blank">ICING</a>
+      </div>
     </div>
-  </header>
+</div>
 </body>
 </html>
