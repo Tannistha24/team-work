@@ -158,37 +158,5 @@ function initMap() {
     });
 }
 
-/*Open Ai */
 
-/*async function getAIResponse(userInput) {
-    const apiKey = "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";  // Replace with your API key
-
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-            model: "gpt-4",  // You can also use "gpt-3.5-turbo"
-            messages: [{ role: "user", content: userInput }],
-            temperature: 0.7
-        })
-    });
-
-    const data = await response.json();
-    return data.choices[0].message.content;
-}
-
-async function askAI() {
-    const userQuery = document.getElementById("weatherInput").value;
-    const aiResponse = await getAIResponse(userQuery);
-    document.getElementById("aiResponse").innerText = aiResponse;
-}
-
-async function askAIWithWeather(weatherData) {
-    const userQuery = `Summarize this weather data: ${JSON.stringify(weatherData)}`;
-    const aiResponse = await getAIResponse(userQuery);
-    document.getElementById("aiResponse").innerText = aiResponse;
-}*/
 
