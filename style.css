@@ -262,3 +262,15 @@ p{
     font-weight:bold;
     color:black;
 }
+
+#map {
+    height: 600px; /* Adjust as needed */
+    width: 100%;
+}
+
+#pac-input {
+    margin-top: 10px;
+    width: 300px;
+    padding: 5px;
+    font-size: 14px;
+}

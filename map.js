@@ -120,5 +120,43 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 })
   
+/*MAPs*/
+let map, autocomplete;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: -33.8688, lng: 151.2195 }, // Default location
+        zoom: 13
+    });
+
+    const input = document.getElementById('pac-input');
+    autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', map);
+
+    autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+            console.log("No details available for: '" + place.name + "'");
+            return;
+        }
+
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+        }
+
+        // Add a marker
+        new google.maps.Marker({
+            position: place.geometry.location,
+            map: map
+        });
+
+        // Call your existing weather function to fetch weather data for the selected location
+        fetchWeather(place.geometry.location.lat(), place.geometry.location.lng());
+    });
+}
+
 
 
