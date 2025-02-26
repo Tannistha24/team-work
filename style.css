@@ -146,16 +146,17 @@ body {
     background-color: hsla(0, 0%, 0%, 0.103);
     border: 3px solid hsl(0, 0%, 0%);
     border-radius: 2px;
-    box-shadow: 2px 2px 10px hsl(0, 1%, 14%)
+    box-shadow: 2px 2px 10px hsl(0, 1%, 14%);
 }
 #s1{
     margin: 10px; 
     padding: 5px 15px;
     font-size: 20px;
-    background-color: hsla(0, 0%, 100%, 0);
+    background-color: hsla(0, 0%, 0%, 0);
     border: 2px solid black;
     border-radius: 3px;
-    box-shadow: 2px 2px 10px hsl(0, 1%, 14%)
+    box-shadow: 2px 2px 10px hsl(0, 1%, 14%);
+    color: hsl(0, 0%, 0%);
 }
 #r1{
     margin: 10px; 
@@ -164,8 +165,8 @@ body {
     background-color: hsla(0, 0%, 100%, 0);
     border: 2px solid black;
     border-radius: 3px;
-    box-shadow: 2px 2px 10px hsl(0, 0%, 7%)
-    
+    box-shadow: 2px 2px 10px hsl(0, 0%, 7%);
+    color: hsl(0, 0%, 0%);
 }
 
 .header {
@@ -219,14 +220,6 @@ button[type="submit"]{
 button[type="submit"]:hover{
     background-color: hsl(130, 100%, 30%);
 }
-.card{
-    background : linear-gradient(180deg,hsl(240, 91%, 45%),hsl(39, 100%, 50%));
-    padding:50px;
-    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.60);
-    display : flex;
-    flex-direction:column;
-    align-items:center;
-}
 
 h1{
     font-size: 3.5rem;
@@ -238,6 +231,15 @@ p{
     margin-bottom:5px 0;
 }
 
+.card{
+    background : linear-gradient(180deg,hsl(240, 91%, 45%),hsl(39, 100%, 50%));
+    background: rgba(255, 255, 255, 0.2);
+    padding:40px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.60);
+    display : flex;
+    flex-direction:column;
+    align-items:center;
+}
 .cityDisplay, .tempDisplay{
     font-size: 3.5rem;
     font-weight: bold;
@@ -273,4 +275,28 @@ p{
     width: 300px;
     padding: 5px;
     font-size: 14px;
+}
+/* For Voice Assistance*/
+/* 🎤 Voice Button Styling */
+#voiceButton {
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: #068de7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#voiceButton:hover {
+    background-color: #526fe1;
+}
+
+/* 🎙️ Transcript Display */
+#transcript {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
 }

@@ -9,16 +9,13 @@
 </head>
 <body>
     <h2>Weather in India</h2> <br><br>   
-    <!--<form class ="weatherForm">
-      <input typr="text" class ="cityInput" placeholder="Enter city">
-      <button type="submit">Get Weather</button>
-    </form>-->
     <div class="card" style="display:none">
     </div>
-  
-
   <div class="header">
     <button class="signbtn" id="sign"><a href="sign.html" target="_blank">Sign In</a></button><br><br>
+    <input id="pac-input" type="text" placeholder="Search for a place">
+    <button id="voiceButton">🎤 Speak</button>
+    <p id="transcript"></p>
     <div class="search-container">
       <form class ="weatherForm">
         <input typr="text" class ="cityInput" placeholder="Enter city">
@@ -37,11 +34,10 @@
       </div>
     </div>
 </div>
-<input id="pac-input" type="text" placeholder="Search for a place">
-<div id="map"></div>
+<div id="map"></div><br<><br>
 <input type="text" id="weatherInput" placeholder="Ask about weather">
 <button onclick="askAI()">Ask AI</button>
-<p id="aiResponse"></p>
+<p id="aiResponse"></p><br><br>
 <script async defer
     src="https://maps.gomaps.pro/maps/api/js?key=AlzaSyn9_OcYqFT8a3LJzk2orysRCbUT5OwDelW&libraries=geometry,places&callback=initMap">
 </script>

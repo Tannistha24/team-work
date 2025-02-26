@@ -125,7 +125,7 @@ let map, autocomplete;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -33.8688, lng: 151.2195 }, // Default location
+        center: { lat:20.5937, lng:78.96269  }, // Default location
         zoom: 13
     });
 
@@ -160,35 +160,120 @@ function initMap() {
 
 /*Open Ai */
 
-/*async function getAIResponse(userInput) {
-    const apiKey = "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";  // Replace with your API key
+async function getAIResponse(userInput) {
+    const apiKey = "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";  // Make sure this is correct!
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apiKey}`
-        },
-        body: JSON.stringify({
-            model: "gpt-4",  // You can also use "gpt-3.5-turbo"
-            messages: [{ role: "user", content: userInput }],
-            temperature: 0.7
-        })
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-4",  // Use "gpt-4" if your key supports it
+                messages: [{ role: "user", content: userInput }],
+                temperature: 0.7
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`API Error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0].message.content;
+    } catch (error) {
+        console.error("Error fetching AI response:", error);
+        return "AI service unavailable. Please check API key & network.";
+    }
+}
+
+
+let lastRequestTime = 0;
+
+async function askAI() {
+    const userQuery = document.getElementById("weatherInput").value;
+    const aiResponseElement = document.getElementById("aiResponse");
+
+    if (!userQuery.trim()) {
+        aiResponseElement.innerText = "Please enter a query.";
+        return;
+    }
+
+    const now = Date.now();
+    if (now - lastRequestTime < 5000) {  // 5 seconds delay between requests
+        aiResponseElement.innerText = "You're sending requests too quickly. Please wait.";
+        return;
+    }
+
+    lastRequestTime = now;
+
+    try {
+        aiResponseElement.innerText = "Processing...";
+        const aiResponse = await getAIResponse(userQuery);
+        aiResponseElement.innerText = aiResponse;
+    } catch (error) {
+        console.error("Error fetching AI response:", error);
+        aiResponseElement.innerText = "AI service unavailable. Try again later.";
+    }
+}
+
+/*FOr Voice Assistance*/
+const voiceButton = document.getElementById("voiceButton");
+const transcriptElement = document.getElementById("transcript");
+
+// Check if browser supports speech recognition
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (!SpeechRecognition) {
+    alert("Your browser does not support voice recognition. Try using Chrome.");
+} else {
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false; // Stops after user speaks
+    recognition.lang = "en-US"; // Set language
+
+    voiceButton.addEventListener("click", () => {
+        transcriptElement.innerText = "Listening...";
+        recognition.start();
     });
 
-    const data = await response.json();
-    return data.choices[0].message.content;
+    recognition.onresult = (event) => {
+        const userQuery = event.results[0][0].transcript;
+        transcriptElement.innerText = `You said: "${userQuery}"`;
+        document.getElementById("weatherInput").value = userQuery; // Autofill input box
+        askAI(); // Send query to AI
+    };
+
+    recognition.onerror = (event) => {
+        transcriptElement.innerText = "Error recognizing speech. Try again.";
+        console.error("Speech Recognition Error:", event.error);
+    };
+}
+
+function speak(text) {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US"; // Set language
+    synth.speak(utterance);
 }
 
 async function askAI() {
     const userQuery = document.getElementById("weatherInput").value;
-    const aiResponse = await getAIResponse(userQuery);
-    document.getElementById("aiResponse").innerText = aiResponse;
+    const aiResponseElement = document.getElementById("aiResponse");
+
+    if (!userQuery.trim()) {
+        aiResponseElement.innerText = "Please enter a query.";
+        return;
+    }
+
+    try {
+        aiResponseElement.innerText = "Processing...";
+        const aiResponse = await getAIResponse(userQuery);
+        aiResponseElement.innerText = aiResponse;
+        speak(aiResponse); // Speak the response
+    } catch (error) {
+        console.error("Error fetching AI response:", error);
+        aiResponseElement.innerText = "AI service unavailable.";
+        speak("AI service unavailable.");
+    }
 }
-
-async function askAIWithWeather(weatherData) {
-    const userQuery = `Summarize this weather data: ${JSON.stringify(weatherData)}`;
-    const aiResponse = await getAIResponse(userQuery);
-    document.getElementById("aiResponse").innerText = aiResponse;
-}*/
-
