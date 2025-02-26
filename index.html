@@ -8,37 +8,11 @@
     <title>WEATHER MAP</title>
 </head>
 <body>
-    
-  <!--<header><h1>WEATHER MAP</h1>
-    <h2>Weather in India</h2>
-    <button onclick="fetchWeather()" id="weather">Get Weather</button><br><br>
-    <script src="map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-
-    <div class="header">
-      <button class="signbtn">Sign In</button><br><br>
-      <input type="text" name="search" placeholder="Search here">
-      <button type="submit" id="searchbtn">Search</button>
-    </div>-expanded="false">
-        Select Option
-    <div class="dropdown">
-      <button class="dropbtn" type="button" data-bs-toggle="dropdown" aria
-      </button>             
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">WIND</a>
-        <a class="dropdown-item" href="#">TEMPERATURE</a>
-        <a class="dropdown-item" href="#">RAINFALL</a>
-        <a class="dropdown-item" href="#">FOG</a>
-        <a class="dropdown-item" href="#">HEAT WAVES</a>
-        <a class="dropdown-item" href="#">ICING</a>
-      </div>
-    </div>-->
-
     <h2>Weather in India</h2> <br><br>   
-    <form class ="weatherForm">
+    <!--<form class ="weatherForm">
       <input typr="text" class ="cityInput" placeholder="Enter city">
       <button type="submit">Get Weather</button>
-    </form>
+    </form>-->
     <div class="card" style="display:none">
     </div>
   
@@ -46,8 +20,10 @@
   <div class="header">
     <button class="signbtn" id="sign"><a href="sign.html" target="_blank">Sign In</a></button><br><br>
     <div class="search-container">
-      <input type="text" name="search" placeholder="Enter Your Location">
-      <button type="submit" id="searchbtn">Search</button>
+      <form class ="weatherForm">
+        <input typr="text" class ="cityInput" placeholder="Enter city">
+        <button type="submit">Get Weather</button>
+      </form>
     </div>          
    <div class="dropdown">
       <button class="dropdown-button">Select</button>
@@ -63,6 +39,9 @@
 </div>
 <input id="pac-input" type="text" placeholder="Search for a place">
 <div id="map"></div>
+<input type="text" id="weatherInput" placeholder="Ask about weather">
+<button onclick="askAI()">Ask AI</button>
+<p id="aiResponse"></p>
 <script async defer
     src="https://maps.gomaps.pro/maps/api/js?key=AlzaSyn9_OcYqFT8a3LJzk2orysRCbUT5OwDelW&libraries=geometry,places&callback=initMap">
 </script>

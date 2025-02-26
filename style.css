@@ -197,7 +197,7 @@ body {
 }
 .cityInput{
     padding: 10px;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: bold;
     border: 2px solid hsl(0, 0%, 50%);
     border-radius:10px;
@@ -208,7 +208,7 @@ body {
 button[type="submit"]{
     padding: 10px 20px;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1rem;
     background-color: hsl(130, 100%, 35%);
     color: white;
     border: none;
